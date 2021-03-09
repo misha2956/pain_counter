@@ -2,6 +2,8 @@ import os
 
 count = 0
 for root, dirs, files in os.walk(os.path.curdir):
+    if 'venv' in root:
+        continue
     for file_str in files:
         if file_str.endswith(".py"):
             count += open(os.path.join(root, file_str), 'rb').read().count(
